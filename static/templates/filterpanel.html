@@ -1,0 +1,119 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="container-fluid">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand">
+			<img alt="Logo pnc" src="static/img/logo.png" style="height: 40px; padding: 0px; margin-top: -15px;">
+		</a>
+		<span class="navbar-brand" >{{::mapOptions.name}}</span>
+	</div>
+	<div class="navbar-collapse collapse"  id="main-menu" >
+		<ul class="nav navbar-nav">
+					<li>
+					  <a href="" data-toggle="modal" data-target="#modalCharteDonnees" id="about-btn">
+							<i class="glyphicon glyphicon-info-sign" ></i>&nbsp;&nbsp;Charte
+					  </a>
+					</li>
+					<li>
+					  <a href="" data-toggle="modal" data-target="#modalProtection" id="about-btn">
+							<i class="glyphicon glyphicon-info-sign" ></i>&nbsp;&nbsp;Protection
+					  </a>
+					</li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle filter-collapse collapsed filter-panel"
+						ng-init="isCollapsed = true"
+						id="filter-panel"
+						ng-click="isCollapsed = !isCollapsed" >Filtres <span class="caret"></span></a>
+          <ul class="dropdown-menu filters" uib-collapse="isCollapsed">
+						<dir-filter-element ng-repeat="(key, obj) in ::mapOptions.layers.overlay.filters"
+							on-check="dofilterOnMap()" filter="obj" key="key"/>
+          </ul>
+        </li>
+    </ul>
+			</div>
+		</ng-if>
+	</div>
+
+</div>
+</nav>
+<!-- Modal -->
+<div id="modalCharteDonnees" class="modal fade">
+	    <div class="modal-dialog" style="width:70%;height:inherit;color:black;">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h3 class="modal-title">Charte d’usage des informations</h3>
+	            </div>
+	            <div class="modal-body">
+	                <div>
+											<p>
+												Dans un esprit de confiance et de transparence et dans l’objectif commun de protéger le patrimoine naturel du territoire, le Parc national a souhaité porter à la connaissance des élus communaux référents de son territoire les informations concernant les rapaces les plus rares et emblématiques.
+											</p>
+											<p><b>
+												Ces informations sont très précises et très sensibles, elles ne doivent en aucun cas être communiquées à des tierces personnes.
+											</b></p>
+											<p><b>
+												La destruction des rapaces et de leurs habitats est punie par la loi, tout comme leur dérangement intentionnel.
+											</b></p>
+											<p>
+												Les deux objectifs de ce porté à connaissance sont de permettre aux élus locaux référents de:
+												<ul>
+													<li>
+														prendre en compte ces périmètres de quiétude dans l’élaboration de leur règlementation circulation,
+													</li>
+													<li>
+														de contacter l’établissement s’ils ont connaissance d’un projet qui concerne un périmètre de quiétude. Ce contact permettra d’instaurer un dialogue entre porteur de projet et Parc pour concilier au mieux enjeux de protection et réalisation du projet.
+													</li>
+												</ul>
+											</p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+</div>
+
+<div id="modalProtection" class="modal fade">
+	    <div class="modal-dialog" style="width:70%;height:inherit;color:black;">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h3 class="modal-title">Protection règlementaire des rapaces</h3>
+	            </div>
+	            <div class="modal-body">
+									<div class="bs-callout bs-callout-danger">
+										<b>
+											Les rapaces sont strictement protégés. Par ailleurs, le dérangement intentionnel des individus et la dégradation de leurs habitats est interdite.
+										</b>
+									</div>
+	                <div>
+										<h4>Au niveau Européen</h4>
+										<p>
+											Tous les rapaces sont strictement protégé par la
+											<a href="http://gypaete.vanoise-parcnational.fr/fr/documentation-en-ligne/doc_download/1320-directive-79409cee-oiseaux.html">Directive "Oiseaux" n°79/409/CEE</a>,
+											concernant la conservation des oiseaux sauvages (Conseil de l'Europe du 2 avril 1979 - JOCE du 25 avril 1979).
+											Cette directive constitue un des cadres dans lequel s'appliquent les dispositions de la <a href="http://gypaete.vanoise-parcnational.fr/fr/protection-gypaete-barbu/protection-legislative-gypaete-barbu.html">convention de Berne</a>.
+										</p>
+	                </div>
+	                <div>
+										<h4>Au niveau national</h4>
+										<p>
+											Face au déclin des populations de rapaces, la protection des rapaces a été instaurée dès 1972. L'arrêté du 24 janvier 1972, a modifié la liste des espèces dont la chasse est prohibée et a précisé l'interdiction de chasser tous les rapaces diurnes et nocturnes.
+										</p>
+										<p>
+											Un arrêté ministériel du 17 avril 1981 a fixé la liste des oiseaux protégés sur l’ensemble du territoire national. Il a été pris en application de la loi de protection de la nature du 10 juillet 1976. Ces dispositions ont confirmé cette protection stricte de tous les rapaces sans distinction sur e territoire national. Cette loi est désormais codifiée aux articles L411-1 et suivants du Code de l'Environnement.
+										</p>
+										<p>
+											Depuis, cette protection a été complétée et renforcée en interdisant également la destruction, l’altération ou la dégradation de leurs habitats.
+										</p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+</div>

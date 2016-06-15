@@ -1,0 +1,9 @@
+#TempFiles
+*~
+
+#Data Files
+data/*
+!data/maps.json.sample
+
+#Bower files
+bower_components

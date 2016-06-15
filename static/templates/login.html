@@ -1,0 +1,32 @@
+<div class="login-page fill" style="background-image:url('static/img/login/JP_M_08542ORI.jpg');">
+  <div class="">
+    <img src="static/img/logo_pnc_blanc_r.png"/>
+  </div>
+  <div class="login-header">
+    <h1>Les périmètres de quiétude</h1>
+    <h2>Porté à connaissance aux élus référents</h2>
+  </div>
+    <div id="login-wraper">
+      <form class="login-form" name="loginForm">
+        <legend>Connexion</legend>
+        <div class="body">
+          <div class="form-group" ng-class="{ 'has-error' : loginForm.login.$invalid && !loginForm.login.$pristine }">
+            <label for="lblemail">Email</label>
+            <input type="text" class="form-control" name="login" ng-model="login" placeholder="email" required>
+            <p ng-show="loginForm.login.$invalid && !loginForm.login.$pristine" class="help-block">Email non valide</p>
+          </div>
+          <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+            <label for="lblpass">Mot de passe</label>
+            <input type="password" class="form-control" name="password" ng-model="password" placeholder="mot de passe" required>
+            <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">Mot de passe non valide</p>
+          </div>
+        </div>
+        <footer>
+          <a href="#/newpass">Mot de passe oublié ?</a>
+          <button type="submit" class="btn btn-primary"
+            ng-disabled="loginForm.$invalid"
+            ng-click="sumbit()">Se connecter</button>
+        </footer>
+      </form>
+    </div>
+</div>
