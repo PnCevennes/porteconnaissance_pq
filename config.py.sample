@@ -9,3 +9,13 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 SESSION_TYPE = 'filesystem'
 SECRET_KEY = 'super secret key'
+COOKIE_EXPIRATION = 3600
+
+MAIL_SERVER = 'monmail.fr'
+MAIL_PORT = 25
+MAIL_USERNAME = 'test@monmail.fr'
+MAIL_PASSWORD = 'password'
+
+MAIL_SENDER = 'sender@monmail.fr'
+
+MODE_DEBUG = False

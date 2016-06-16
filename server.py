@@ -2,13 +2,12 @@ from flask import Flask, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 
-
 db = SQLAlchemy()
-app_globals = {}
-
 mail = Mail()
 
-def get_app():
+app_globals = {}
+
+def init_app():
     if app_globals.get('app', False):
         app= app_globals['app']
     else :
@@ -18,7 +17,6 @@ def get_app():
     db.init_app(app)
 
     mail.init_app(app)
-
 
     from app.login.routes import routes
     app.register_blueprint(routes, url_prefix='/auth')
@@ -31,6 +29,6 @@ def get_app():
     app_globals['app'] = app
     return app
 
-
+get_app = init_app()
 if __name__ == '__main__':
-    get_app().run(host= '192.168.10.159', debug=True)
+    get_app.run(debug=get_app().config['MODE_DEBUG'])
