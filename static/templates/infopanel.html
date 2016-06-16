@@ -1,7 +1,17 @@
 <footer ng-if="infoObj" class="footer" id="info-popup">
 	<div class="row"  id="info-header">
-		<h3><span  id="info-title">{{mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].label}} - {{mapOptions.layers.overlay.filters.code_etat.values[infoObj.code_etat].label}}</span>
-		<span class="glyphicon glyphicon-remove pull-right" onclick="$('#info-popup').hide(); return false;"></span>
+		<h3>
+			<span  id="info-title">
+				{{mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].label}} -
+				{{mapOptions.layers.overlay.filters.code_etat.values[infoObj.code_etat].label}}
+					<span class="" ng-if="infoObj.code_etat == 'act'">
+						depuis {{infoObj.max_etat_annee}}
+					</span>
+					<span class="" ng-if="infoObj.code_etat == 'ina'">
+						en {{annee_etatdonnees}}
+					</span>
+			</span>
+			<span class="glyphicon glyphicon-remove pull-right" onclick="$('#info-popup').hide(); return false;"></span>
 		</h3>
 	</div>
 	<div class="row" id="info-content">
@@ -31,6 +41,24 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-7  col-xs-12" id="info-reglementation">"Attention réglementation ou conseil Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg </div>
+		<div class="col-md-7  col-xs-12" id="info-reglementation">
+
+				<div class="" ng-if="infoObj.zone_pnc == 'zc'">
+					"Attention réglementation EN ZC Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg
+				</div>
+				<div class="" ng-if="infoObj.zone_pnc != 'zc'">
+					"Attention conseil hors ZC Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg
+				</div>
+
+			<div id="info-contact">
+				<div class="" ng-if="contact_massifs[infoObj.massifs]">
+					Technicien de massif : {{contact_massifs[infoObj.massifs].nom_agent}} - {{contact_massifs[infoObj.massifs].tel_fixe}} - {{contact_massifs[infoObj.massifs].tel_portable}}
+				</div>
+				<div class="" ng-if="contact_secteurs[infoObj.id_secteur]">
+					Garde moniteur : {{contact_secteurs[infoObj.id_secteur].nom_agent}} - {{contact_secteurs[infoObj.id_secteur].tel_portable}}
+				</div>
+
+			</div>
+		</div>
 	</div>
 </footer>
