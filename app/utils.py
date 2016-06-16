@@ -1,5 +1,5 @@
 
-from server import db, mail, get_app
+from server import db, mail, init_app as get_app
 from flask_mail import Message
 
 def send_mail(subject, msg_body, msg_html, dest):
