@@ -247,3 +247,7 @@ a.clickable:hover { text-decoration:none; }
 .bs-callout-danger {
     border-left-color: #ce4844;
 }
+
+ol.upper-roman{
+   list-style-type: upper-roman;
+}

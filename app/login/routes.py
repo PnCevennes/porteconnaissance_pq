@@ -9,7 +9,7 @@ import uuid
 import datetime
 from functools import wraps
 from flask import Blueprint, Flask, request, jsonify, session, g, Response
-from server import db,get_app
+from server import db, init_app as get_app
 from . import models
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, SignatureExpired, BadSignature
 

@@ -13,7 +13,7 @@ var app = angular.module('MapCreatorApp', ['ngRoute', 'ui.bootstrap', 'angularSp
 }]);;
 
 app.constant("backendCfg", {
-  "api_url": "http://192.168.10.159:5000/"
+  "api_url": ""
 })
 
 app.config(['$routeProvider','$locationProvider',
@@ -116,10 +116,22 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
 
   $scope.currentUser = loginSrv.getCurrentUser();
   $('#info-popup').hide();
-  $('#modalPresenationGeneral').modal({show:true});
 
   $scope.map = L.map('mapc', { zoomControl:true });
 
+  //Chargement des données statiques
+  $scope.contact_massifs= {};
+  $http.get("pq/contact/massifs").then(
+    function(results) {
+      $scope.contact_massifs = results.data;
+  });
+  //Chargement des données statiques
+  $scope.contact_secteurs= {};
+  $http.get("pq/contact/secteurs").then(
+    function(results) {
+      $scope.contact_secteurs = results.data;
+  });
+  $scope.annee_etatdonnees = ((new Date().getMonth()<5) && (new Date().getDay()< 15)) ? new Date().getFullYear() : new Date().getFullYear()-1;
 
   //Démarrage du spinner
   usSpinnerService.spin('spinner-1');
@@ -194,7 +206,7 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
           $scope.map.addLayer($scope.mainLayer);
           //Arret du spinner
           usSpinnerService.stop('spinner-1');
-          $('#modalPresenationGeneral').modal({show:true});
+          $('#modalCharteDonnees').modal({show:true});
         });
 
       //----Selecteur de localisation
@@ -236,7 +248,7 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
       item.setStyle({color: 'yellow', fillColor:'yellow'});
     }
     $scope.infoObj = item.feature.properties;
-    $scope.isCollapsed = true;
+    $scope.isCollapsed = false;
     $('#info-popup').show();
   });
 
