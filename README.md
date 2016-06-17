@@ -30,3 +30,7 @@ License
 
 * OpenSource - GPL V3
 * Copyleft 2016 - Parc national des Cévennes
+
+![Logo PnC](static/img/logo_pnc_orange_r.png)
+
+
