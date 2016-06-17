@@ -95,6 +95,8 @@ def generate_password():
             resp = Response(json.dumps({'type':'email', 'msg':'Email invalide'}), status=490)
             return resp
         p = user.generate_newpassword()
+        db.session.add(user)
+        db.session.commit()
 
         msg = render_template("generate_password.txt",
                                user=user, newpassword = p)
