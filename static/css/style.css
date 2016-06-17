@@ -174,7 +174,7 @@ a.clickable:hover { text-decoration:none; }
   padding:10px;
 }
 .periode-active {
-  background-color : #333030;
+  background-color : #3A0000;
 }
 .periode-inactive {
   background-color: rgba(140, 148, 150, 0.62);
