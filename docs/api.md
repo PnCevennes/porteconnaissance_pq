@@ -1,4 +1,4 @@
-Liste des routes accéssibles via l'api
+Liste des routes accessibles via l'api
 
 Login
 ======
