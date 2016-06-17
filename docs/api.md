@@ -1,3 +1,5 @@
+Liste des routes accéssibles via l'api
+
 Login
 ======
 
@@ -22,8 +24,7 @@ Login
 
 PQ
 ======
-
- * /pq
+* /pq
   * Renvoie en geojson les périmètres de quiétude
   * Méthode : GET
   * Condition : être authentifié
