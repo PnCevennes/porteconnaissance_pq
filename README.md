@@ -16,6 +16,15 @@ Technologies
 - Framework JS : AngularJs
 - Framework carto : Leaflet
 
+Architecture
+------------
+![Schéma architecture](docs/img/shema_architecture.png?raw=true "Schéma architecture")
+
+
+API
+------------
+  - Documentation sur les routes : [api](docs/api.md)
+
 License
 -------
 
