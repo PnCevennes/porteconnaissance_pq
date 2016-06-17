@@ -1,63 +1,74 @@
 {
 	"order" : 1,
-	"id": "default", 
+	"id": "default",
 	"clustering": false,
-	"name": "Périmètre de quiétude", 
+	"name": "Périmètre de quiétude",
 	"center": {
 		"lat": 44.3266459,
 		"lng": 3.6072651,
 		"zoom": 10
 	},
 	"location":{
-		"url":"data/communes.json",
+		"url":"/pq/communes",
 		"name":"Communes"
 	},
-	"layers": { 
-		"baselayers": [
-		    {
-		        "name": "OpenCycleMap",
-		        "type": "xyz",
-		        "url": "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
-		        "active": false,
-		        "options":{}
+	"layers": {
+		"baselayers":{
+		    "osm" : {
+					"name": "Mapbox",
+					"type": "xyz",
+					"url": "http://api.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2ktcG5jIiwiYSI6ImNpbWYyanA5NDAwNGl2aWx1M3ZzbzB3YmIifQ.000Tp3qijjy4gO29d-3G2A",
+					"active": true,
+					"options":{"opacity":0.8}
 		    },
-		    {
-		        "name": "OpenStreetMap",
-		        "type": "xyz",
-		        "url": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
-		        "active": true,
-		        "options":{}
-		    }
-		],
+				"limites_pnc": {
+              "name": "Limites PNC",
+              "url": "http://maps.cevennes-parcnational.net/data/tiles/limites_pnc/{z}/{x}/{y}.png",
+              "type": "xyz",
+              "active": "true",
+              "options":{"minZoom":7, "maxZoom":16, "bounds":[[44.6002, 4.2428], [43.9206,3.1744]]}
+            }
+		},
 		"overlay":{
 		        "name": "Perimetre quietude",
 		        "type": "geojson",
-		        "url": "data/exp_pq.geojson",
-		        "options" : "{style:function (feature) {return {color: $scope.mapOptions.layers.overlay.filters.code_sp.values[feature.properties.code_sp].color, weight: 1.3, opacity: 1, fillOpacity: 0.5 };},onEachFeature: function (feature, layer) {if (feature.properties, {noHide:false}) {layer.bindPopup(\"<h4>\"+$scope.mapOptions.layers.overlay.filters.code_sp.values[feature.properties.code_sp].label+\"</h4>\");}}}",
+		        "url": "/pq",
+		        "options" : "{style:function (feature) {return {color: $scope.mapOptions.layers.overlay.filters.code_sp.values[feature.properties.code_sp].color, weight: 1.3, opacity: (feature.properties.code_etat == 'ina') ? 0.4 : 1, fillOpacity: (feature.properties.code_etat == 'ina') ? 0.25 : 0.5 };},onEachFeature: function (feature, layer) {if (feature.properties, {noHide:false}) {layer.bindPopup(\"<h4>\"+$scope.mapOptions.layers.overlay.filters.code_sp.values[feature.properties.code_sp].label+\"</h4><div>Périmètre \"+$scope.mapOptions.layers.overlay.filters.code_etat.values[feature.properties.code_etat].label+\"</div>\");}}}",
 		        "filters":{
-					"code_sp" :{
-						"name" : "Taxon",
-						"values" : {
-							"h_p":{"label":"Aigle botté", "color":"#FF6A00", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
-							"h_f":{"label":"Aigle de Bonelli", "color":"maroon", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
-							"a_c":{"label":"Aigle royal", "color":"orange", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
-							"c_g":{"label":"Circaète Jean-le-Blanc", "color":"#B200FF", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
-							"f_p":{"label":"Faucon pélerin", "color":"#00FF90", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
-							"b_b":{"label":"Hibou grand-duc", "color":"#0026FF", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
-							"g_f":{"label":"Vautour fauve", "color":"#00FFFF", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
-							"a_m":{"label":"Vautour moine", "color":"#FF0000", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
-							"n_p":{"label":"Vautour percnoptère", "color":"#0094FF", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}}
+							"code_sp" :{
+								"name" : "Taxon",
+								"values" : {
+									"h_p":{"label":"Aigle botté", "color":"#503b5e", "visible":true, "periode":{"1":1, "2":1, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+									"h_f":{"label":"Aigle de Bonelli", "color":"maroon", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+									"a_c":{"label":"Aigle royal", "color":"orange", "visible":true, "periode":{"1":1, "2":1, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":1, "12":1}},
+									"c_g":{"label":"Circaète Jean-le-blanc", "color":"#B200FF", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+									"f_p":{"label":"Faucon pèlerin", "color":"#00FF90", "visible":true, "periode":{"1":0, "2":1, "3":1, "4":1, "5":1, "6":1, "7":0, "8":0, "9":0, "10":0, "11":0, "12":0}},
+									"b_b":{"label":"Grand-duc d'Europe", "color":"#0026FF", "visible":true, "periode":{"1":1, "2":1, "3":1, "4":1, "5":1, "6":1, "7":1, "8":0, "9":0, "10":0, "11":0, "12":0}},
+									"g_f":{"label":"Vautour fauve", "color":"#00FFFF", "visible":true, "periode":{"1":1, "2":1, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":1, "12":1}},
+									"a_m":{"label":"Vautour moine", "color":"#FF0000", "visible":true, "periode":{"1":1, "2":1, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":1, "10":1, "11":1, "12":1}},
+									"n_p":{"label":"Vautour percnoptère", "color":"#0094FF", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+									"a_f":{"label":"Chouette de Tengmalm", "color":"#503b5e", "visible":true, "periode":{"1":1, "2":1, "3":1, "4":1, "5":1, "6":1, "7":1, "8":0, "9":0, "10":0, "11":0, "12":0}}
+								}
+							},
+							"code_etat" : {
+								"name":"Etat",
+								"values" : {
+									"act":{"label":"Actif","visible":true},
+									"ina":{"label":"Inactif","visible":true},
+									"ind":{"label":"Indéterminé","visible":true}
+								}
+							}
+        		},
+						"vocabulaire" : {
+							"code_zone_pnc" : {
+								"name":"Zone PnC",
+								"values" : {
+									"zc":{"label":"Coeur"},
+									"aa":{"label":"Aire d'adhésion"},
+									"aoa":{"label":"Périmètre d'étude de la charte"}
+								}
+							}
 						}
-					},
-					"code_etat" : {
-						"name":"Etat",
-						"values" : {
-							"act":{"label":"Actif","visible":true},
-							"ina":{"label":"Inactif","visible":true},
-							"ind":{"label":"Indéterminé","visible":true}
-						}
-					}
-		        }
-		    }
+    	}
 	}
 }
