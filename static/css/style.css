@@ -150,7 +150,7 @@ a.clickable:hover { text-decoration:none; }
   z-index: 1001;
   width: 100%;
   min-height: 160px;
-  max-height: 200px;
+  max-height: 300px;
   font-size: 1.15em;
   background: rgba(51, 48, 48, 0.59) none repeat scroll 0% 0%;
   overflow-y: auto;
@@ -173,9 +173,12 @@ a.clickable:hover { text-decoration:none; }
   width: 100%
   padding:10px;
 }
+
 .periode-active {
   background-color : #3A0000;
+  text-decoration: underline;
 }
+
 .periode-inactive {
   background-color: rgba(140, 148, 150, 0.62);
 }
