@@ -15,3 +15,9 @@ Technologies
 - Framework Python : Flask
 - Framework JS : AngularJs
 - Framework carto : Leaflet
+
+License
+-------
+
+* OpenSource - GPL V3
+* Copyleft 2016 - Parc national des Cévennes
