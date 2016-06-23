@@ -151,9 +151,9 @@ a.clickable:hover { text-decoration:none; }
   z-index: 1001;
   width: 100%;
   min-height: 160px;
-  max-height: 200px;
+  max-height: 250px;
   font-size: 1.15em;
-  background: rgba(51, 48, 48, 0.59) none repeat scroll 0% 0%;
+  background: rgba(51, 48, 48, 0.84) none repeat scroll 0% 0%;
   overflow-y: auto;
   overflow-x: hidden;
   transition:         all 1s  ease;

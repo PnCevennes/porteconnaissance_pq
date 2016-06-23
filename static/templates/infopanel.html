@@ -64,15 +64,16 @@
 					<p>
 						Ce périmètre de quiétude se situe en cœur de Parc national. <b>Les travaux ou activités projetés peuvent être soumis à autorisation.</b> Dans tous les cas, durant la période sensible, <b>la quiétude du périmètre doit être préservée. </b>
 					</p>
-					<p>
-						<b>En cas de projet d’activités, travaux ou autre, merci de contacter :
-							<span ng-if="contact_massifs[infoObj.massifs]">
-									{{contact_massifs[infoObj.massifs].nom_agent}} TCVT au {{contact_massifs[infoObj.massifs].tel_fixe}} ou au {{contact_massifs[infoObj.massifs].tel_portable}}
-							</span> ou
-							<span ng-if="contact_secteurs[infoObj.id_secteur]">
-									{{contact_secteurs[infoObj.id_secteur].nom_agent}} TCVT au {{contact_secteurs[infoObj.id_secteur].tel_portable}}
-							</span>
-						</b>
+					<p ng-if="contact_massifs[infoObj.massifs] || contact_secteurs[infoObj.id_secteur]">
+						En cas de projet d’activités, travaux ou autre, merci de contacter :
+							<ul>
+								<li ng-if="contact_massifs[infoObj.massifs]">
+										{{contact_massifs[infoObj.massifs].nom_agent}} TCVT au {{contact_massifs[infoObj.massifs].tel_fixe}} ou au {{contact_massifs[infoObj.massifs].tel_portable}}
+								</li>
+								<li ng-if="contact_secteurs[infoObj.id_secteur]">
+										{{contact_secteurs[infoObj.id_secteur].nom_agent}} garde moniteur au {{contact_secteurs[infoObj.id_secteur].tel_portable}}
+								</li>
+						</ul>
 					</p>
 					<p>
 						Il vous renseignera au sujet de la règlementation et les demandes d’autorisations à effectuer. Concernant le périmètre de quiétude, l’expertise et le dialogue permettront de voir si le projet est possible sans compromettre la reproduction et ce dans quelles conditions. L’objectif est toujours de concilier au mieux les enjeux de préservation du patrimoine naturel et les autres besoins du territoire.
