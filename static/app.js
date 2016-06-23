@@ -32,7 +32,8 @@ function($routeProvider, $locationProvider) {
     when('/login', {
       templateUrl: 'static/templates/login.html',
       controller: 'LoginCtl'
-    });
+    }).
+    otherwise({ redirectTo: '/'});
 }
 ]);
 

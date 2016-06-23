@@ -44,22 +44,43 @@
 			</div>
 		</div>
 		<div class="col-md-7  col-xs-12" id="info-reglementation">
-				<div class="" ng-if="infoObj.zone_pnc == 'zc'">
-					"Attention réglementation EN ZC Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg
-				</div>
 				<div class="" ng-if="infoObj.zone_pnc != 'zc'">
-					"Attention conseil hors ZC Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg
+					<p>
+						Durant la période sensible, <b>la quiétude du périmètre doit être préservée. </b>
+						<b>En cas de projet d’activités, travaux ou autre, merci de contacter :
+							<span ng-if="contact_massifs[infoObj.massifs]">
+									{{contact_massifs[infoObj.massifs].nom_agent}} TCVT au {{contact_massifs[infoObj.massifs].tel_fixe}} ou au {{contact_massifs[infoObj.massifs].tel_portable}}
+							</span>
+						</b>
+					</p>
+					<p>
+						L’expertise et le dialogue permettront de voir si le projet est possible sans compromettre la reproduction et ce dans quelles conditions. L’objectif est toujours de concilier au mieux les enjeux de préservation du patrimoine naturel et les autres besoins du territoire.
+					</p>
+					<p>
+						En dehors de la période sensible, même si le périmètre est inactif, il est important de préserver les caractéristiques générales du site. Dans le cas d’un projet qui pourrait les impacter, contacter la personne mentionnée ci-dessus qui sera en mesure de formuler des préconisations.
+					</p>
 				</div>
-
-			<div id="info-contact">
-				<div class="" ng-if="contact_massifs[infoObj.massifs]">
-					Technicien de massif : {{contact_massifs[infoObj.massifs].nom_agent}} - {{contact_massifs[infoObj.massifs].tel_fixe}} - {{contact_massifs[infoObj.massifs].tel_portable}}
+				<div class="" ng-if="infoObj.zone_pnc == 'zc'">
+					<p>
+						Ce périmètre de quiétude se situe en cœur de Parc national. <b>Les travaux ou activités projetés peuvent être soumis à autorisation.</b> Dans tous les cas, durant la période sensible, <b>la quiétude du périmètre doit être préservée. </b>
+					</p>
+					<p>
+						<b>En cas de projet d’activités, travaux ou autre, merci de contacter :
+							<span ng-if="contact_massifs[infoObj.massifs]">
+									{{contact_massifs[infoObj.massifs].nom_agent}} TCVT au {{contact_massifs[infoObj.massifs].tel_fixe}} ou au {{contact_massifs[infoObj.massifs].tel_portable}}
+							</span> ou
+							<span ng-if="contact_secteurs[infoObj.id_secteur]">
+									{{contact_secteurs[infoObj.id_secteur].nom_agent}} TCVT au {{contact_secteurs[infoObj.id_secteur].tel_portable}}
+							</span>
+						</b>
+					</p>
+					<p>
+						Il vous renseignera au sujet de la règlementation et les demandes d’autorisations à effectuer. Concernant le périmètre de quiétude, l’expertise et le dialogue permettront de voir si le projet est possible sans compromettre la reproduction et ce dans quelles conditions. L’objectif est toujours de concilier au mieux les enjeux de préservation du patrimoine naturel et les autres besoins du territoire.
+					</p>
+					<p>
+						En dehors de la période sensible, même si le périmètre est inactif, il est important de préserver les caractéristiques générales du site. Dans le cas d’un projet qui pourrait les impacter, contacter la personne mentionnée ci-dessus qui sera en mesure de formuler des préconisations.
+					</p>
 				</div>
-				<div class="" ng-if="contact_secteurs[infoObj.id_secteur]">
-					Garde moniteur : {{contact_secteurs[infoObj.id_secteur].nom_agent}} - {{contact_secteurs[infoObj.id_secteur].tel_portable}}
-				</div>
-
-			</div>
 		</div>
 	</div>
 </footer>

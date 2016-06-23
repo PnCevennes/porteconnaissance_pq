@@ -30,6 +30,11 @@
 					  </a>
 					</li>
 					<li>
+					  <a href="" data-toggle="modal" data-target="#modalQuestionsReponses">
+							<i class="glyphicon glyphicon-question-sign" ></i>&nbsp;&nbsp; Informations
+					  </a>
+					</li>
+					<li>
 					  <a href="static/data/Plaquette_rapace_28p_A4_BD.pdf" target="_blank">
 							<i class="glyphicon glyphicon-book" ></i>&nbsp;&nbsp;Cahier technique
 					  </a>
@@ -231,6 +236,91 @@
 												Enfin, de nombreuses communes adhérentes ont confirmé leur engagement pour la protection des rapaces dans leur convention d’application de la charte.
 											</p>
 	                </div>
+	            </div>
+	        </div>
+	    </div>
+</div>
+
+
+<div id="modalQuestionsReponses" class="modal fade">
+	    <div class="modal-dialog" style="width:70%;height:inherit;color:black;">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h3 class="modal-title">Questions/Réponses</h3>
+	            </div>
+	            <div class="modal-body">
+								<div class="panel-group">
+								  <div class="panel panel-default">
+								    <div class="panel-heading" >
+											<h4 class="panel-title">
+												<a role="button"  ng-click="q1IsCollapsed = !q1IsCollapsed; q3IsCollapsed=true; q2IsCollapsed=true" ng-init="q1IsCollapsed=false">
+										      Quelles sont les espèces concernées ?
+								        </a>
+											</h4>
+								    </div>
+								    <div class="panel-body" uib-collapse="q1IsCollapsed">
+								      <p>
+												Les périmètres de quiétude sont aujourd’hui appliqués pour 8 rapaces emblématiques du Parc national des Cévennes : l’Aigle royal, la Chouette de Tengmalm, le Circaète Jean-le-blanc, le Faucon pèlerin, le Grand-duc d’Europe, le Vautour fauve, le Vautour moine et le Vautour percnoptère.
+											</p>
+											<p>
+												L’information concernant les périmètres de quiétude des Chouettes de Tengmalm sera complétée dès que possible.
+											</p>
+								    </div>
+								  </div>
+									<div class="panel panel-default">
+								    <div class="panel-heading" >
+											<h4 class="panel-title">
+												<a role="button"  ng-click="q2IsCollapsed = !q2IsCollapsed;  q1IsCollapsed=true; q3IsCollapsed=true" ng-init="q2IsCollapsed=true">
+										      Qu’est ce qu’un périmètre de quiétude ?
+								        </a>
+											</h4>
+								    </div>
+								    <div class="panel-body" uib-collapse="q2IsCollapsed">
+								      <p>
+												La période de reproduction est particulièrement sensible chez les rapaces. Sa réussite repose notamment sur le maintien de la quiétude autour des nids. Si les adultes sont dérangés pendant l’édification de l’aire, la couvaison ou l’élevage des jeunes, ils peuvent abandonner la nichée temporairement (dans ce cas les œufs ou poussins sont à la merci de prédateurs) voire définitivement.
+											</p>
+											<p>
+												Fort de sa connaissance des espèces et du territoire, dès les années 90, le Parc national des Cévennes a élaboré un <b>outil de protection</b> des sites de nidification: le périmètre de quiétude.
+											</p>
+											<p>
+												Un périmètre de quiétude est une <b>zone autour du nid au sein de laquelle il est nécessaire d’assurer la tranquillité des oiseaux pendant la période de reproduction et de nidification, jusqu’à l’envol des jeunes.</b> Les périmètres de quiétude sont définis au fur et à mesure des découvertes de sites de nidification  en tenant compte de l’espèce présente et de la configuration du terrain.
+											</p>
+											<p>
+												Durant la période sensible, sur ces sites, <b>en cas de projet d’activités travaux ou autre, l’expertise des agents du Parc et le dialogue avec les porteurs de projet a pour objectif de voir si celui-ci est possible sans compromettre la reproduction et ce dans quelles conditions.</b> L’objectif est toujours de concilier au mieux les enjeux de préservation du patrimoine naturel et les autres besoins du territoire.
+											</p>
+											<p>
+												Pour chaque périmètre vous trouverez dans cette application les noms et numéros de téléphone des personnes à contacter.
+											</p>
+								    </div>
+								  </div>
+									<div class="panel panel-default">
+								    <div class="panel-heading" >
+											<h4 class="panel-title">
+												<a role="button"  ng-click="q3IsCollapsed = !q3IsCollapsed;  q1IsCollapsed=true; q2IsCollapsed=true" ng-init="q3IsCollapsed=true">
+										      Qu’est ce qu’un périmètre actif/inactif ?
+								        </a>
+											</h4>
+								    </div>
+								    <div class="panel-body" uib-collapse="q3IsCollapsed">
+								      <p>
+												Les facteurs de choix d’un site de reproduction par un couple de rapaces sont en premier ressort liés à la configuration générale du site (topographie, orientation, hauteur de la paroi rocheuse…) et secondairement à la nature et la structure du couvert végétal. Sauf bouleversement majeur et exceptionnel (aménagement lourd, ouverture de piste..), un site reste par conséquent favorable dans la durée.
+											</p>
+											<p>
+												Les sites sont donc souvent réutilisés par des oiseaux d’années en années sur de longues périodes ; ils arrivent qu’ils soient utilisés par des espèces différentes dans le temps (Un Grand-duc d’Europe remplaçant un Vautour fauve par exemple). Certains sites inoccupés pendant plusieurs années peuvent ensuite être réinvestis, des sites connus dans la mémoire orale ont ainsi été à nouveau occupés à la faveur de la remontée des effectifs des populations dans le cas de l’Aigle royal par exemple.
+											</p>
+											<p>
+												Le dispositif de périmètre de quiétude mis en place tient compte de ces réalités afin d’ajuster au mieux les préconisations. L’ensemble des périmètres de quiétude connus sont conservés et figurent dans cette base de données. Chacun des sites est qualifié d’ « actif » ou « inactif » selon qu’il est occupé ou non une année considérée.
+											</p>
+											<p>
+												Si un site est occupé il est qualifié « d’actif », les activités projetées dans le périmètre de quiétude doivent être examinées dans le détail afin de prendre les mesures nécessaires pour éviter le dérangement et l’échec de la reproduction ou l’abandon du site. L’objectif est bien sûr de concilier au mieux protection des oiseaux et déroulement de l’activité. Sans élément sur un éventuel déplacement des oiseaux, un périmètre reste actif trois ans à partir de la dernière observation, si des activités sont projetées une vérification est faite pour confirmer la présence des oiseaux.
+											</p>
+											<p>
+												Si un site n’est pas occupé il est qualifié d’ « inactif », mais comme expliqué précédemment, il est nécessaire de préserver ses caractéristiques générales.
+											</p>
+								    </div>
+								  </div>
+								</div>
 	            </div>
 	        </div>
 	    </div>
