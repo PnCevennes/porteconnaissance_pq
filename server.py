@@ -29,6 +29,5 @@ def init_app():
     app_globals['app'] = app
     return app
 
-get_app = init_app()
 if __name__ == '__main__':
-    get_app.run(debug=get_app().config['MODE_DEBUG'])
+    init_app().run(debug=init_app().config['MODE_DEBUG'])

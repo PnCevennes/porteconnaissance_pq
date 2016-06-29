@@ -8,5 +8,5 @@ execfile(activate_env, dict(__file__=activate_env))
 
 sys.path.insert(0,os.path.dirname(__file__))
 
-from server import get_app as application
-# from hello import app as application
+from server import get_app
+application = init_app()
