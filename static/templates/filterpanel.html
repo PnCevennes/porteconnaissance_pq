@@ -43,13 +43,13 @@
 		<ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a class="dropdown-toggle filter-collapse collapsed filter-panel"
-						ng-init="isCollapsed = true"
+						ng-init="isCollapsed = false"
 						id="filter-panel"
 						ng-click="isCollapsed = !isCollapsed" >Filtres <span class="caret"></span></a>
-          <ul class="dropdown-menu filters" uib-collapse="isCollapsed">
-						<dir-filter-element ng-repeat="(key, obj) in ::mapOptions.layers.overlay.filters"
+						<ul class="dropdown-menu filters" uib-collapse="isCollapsed">
+							<dir-filter-element ng-repeat="(key, obj) in ::mapOptions.layers.overlay.filters"
 							on-check="dofilterOnMap()" filter="obj" key="key"/>
-          </ul>
+						</ul>
         </li>
     </ul>
 			</div>
@@ -58,6 +58,7 @@
 
 </div>
 </nav>
+
 <!-- Modal -->
 <div id="modalCharteDonnees" class="modal fade">
 	    <div class="modal-dialog" style="width:70%;height:inherit;color:black;">
@@ -71,16 +72,15 @@
 											<p>
 												Dans un esprit de confiance et de transparence et dans l’objectif commun de protéger le patrimoine naturel du territoire, le Parc national a souhaité porter à la connaissance des élus communaux référents de son territoire les informations concernant les rapaces les plus rares et emblématiques.
 											</p>
-
 											<div class="bs-callout bs-callout-danger">
-											<b>
-												<p>
-													Ces informations sont très précises et très sensibles, elles ne doivent en aucun cas être communiquées à des tierces personnes.
-												</p>
-												<p>
-													La destruction des rapaces et de leurs habitats est punie par la loi, tout comme leur dérangement intentionnel.
-												</p>
-											</b>
+												<b>
+													<p>
+														Ces informations sont précises et très sensibles, elles ne doivent en aucun cas être communiquées à des tierces personnes.
+													</p>
+													<p>
+														La destruction des rapaces et de leurs habitats est punie par la Loi, tout comme leur dérangement intentionnel.
+													</p>
+												</b>
 											</div>
 											<p>
 												Les deux objectifs de ce porté à connaissance sont de permettre aux élus locaux référents de:
@@ -112,95 +112,75 @@
 											Les rapaces sont strictement protégés. Par ailleurs, le dérangement intentionnel des individus et la dégradation de leurs habitats est interdite.
 										</b>
 									</div>
-	                <div>
-										<h4>Au niveau Européen</h4>
-										<p>
-											Tous les rapaces sont strictement protégé par la
-											<a href="static/data/reglementation/Directive_oiseaux_-79-409-CEE_avril79.pdf" target="_blank">Directive "Oiseaux" n°79/409/CEE</a>,
-											concernant la conservation des oiseaux sauvages (Conseil de l'Europe du 2 avril 1979 - JOCE du 25 avril 1979).
-											Cette directive constitue un des cadres dans lequel s'appliquent les dispositions de la <a href="static/data/reglementation/convention_berne.pdf"  target="_blank">convention de Berne</a>.
-										</p>
-	                </div>
-	                <div>
-										<h4>Au niveau national</h4>
-										<p>
-											Face au déclin des populations de rapaces, la protection des rapaces a été instaurée dès 1972. L'arrêté du 24 janvier 1972, a modifié la liste des espèces dont la chasse est prohibée et a précisé l'interdiction de chasser tous les rapaces diurnes et nocturnes.
-										</p>
-										<p>
-											Un arrêté ministériel du 17 avril 1981 a fixé la liste des oiseaux protégés sur l’ensemble du territoire national. Il a été pris en application de la loi de protection de la nature du 10 juillet 1976. Ces dispositions ont confirmé cette protection stricte de tous les rapaces sans distinction sur e territoire national. Cette loi est désormais codifiée aux articles L411-1 et suivants du Code de l'Environnement.
-										</p>
-										<p>
-											Depuis, cette protection a été complétée et renforcée en interdisant également la destruction, l’altération ou la dégradation de leurs habitats.
-										</p>
-										<div class="well">
-											<h4 class="text-center">Article L411-1 du Code de l’environnement<h4>
-											<h5 class="text-center">Modifié par la <a href="https://www.legifrance.gouv.fr/affichTexteArticle.do;jsessionid=0A7B4163BE68AAC262E615350E28F2AB.tpdila08v_1?cidTexte=JORFTEXT000022470434&idArticle=LEGIARTI000022473046&dateTexte=20160615&categorieLien=id#LEGIARTI000022473046" target="_blank">LOI n° 2010-788 du 12 juillet 2010 - art. 124</a></h5>
-											<ol class="upper-roman">
-												<li>
-													Lorsqu'un intérêt scientifique particulier ou que les nécessités de la préservation du patrimoine naturel justifient la conservation de sites d'intérêt géologique, d'habitats naturels, d'espèces animales non domestiques ou végétales non cultivées et de leurs habitats, sont interdits :
-													<ol>
-														<li>
-															La destruction ou l'enlèvement des oeufs ou des nids, la mutilation, la destruction, la capture ou l'enlèvement, la perturbation intentionnelle, la naturalisation d'animaux de ces espèces ou, qu'ils soient vivants ou morts, leur transport, leur colportage, leur utilisation, leur détention, leur mise en vente, leur vente ou leur achat ;
-														</li>
-														<li>
-															La destruction, la coupe, la mutilation, l'arrachage, la cueillette ou l'enlèvement de végétaux de ces espèces, de leurs fructifications ou de toute autre forme prise par ces espèces au cours de leur cycle biologique, leur transport, leur colportage, leur utilisation, leur mise en vente, leur vente ou leur achat, la détention de spécimens prélevés dans le milieu naturel ;
-														</li>
-														<li>
-															La destruction, l'altération ou la dégradation de ces habitats naturels ou de ces habitats d'espèces ;
-														</li>
-														<li>
-															La destruction, l'altération ou la dégradation des sites d'intérêt géologique, notamment les cavités souterraines naturelles ou artificielles, ainsi que le prélèvement, la destruction ou la dégradation de fossiles, minéraux et concrétions présents sur ces sites.
-														</li>
-													</ol>
-												</li>
-												<li>
-													Les interdictions de détention édictées en application du 1°, du 2° ou du 4° du I ne portent pas sur les spécimens détenus régulièrement lors de l'entrée en vigueur de l'interdiction relative à l'espèce à laquelle ils appartiennent.
-												</li>
-											</ol>
-										</div>
-	                </div>
-									<div>
-										<h4>Au niveau local</h4>
-										<p>
-											Du point de vue historique, il est intéressant de relever le rôle précurseur du département de la Lozère en matière de protection des rapaces. L’aigle royal a été exclu de la liste des oiseaux « nuisibles » par un arrêté préfectoral dès 1951 !
-										</p>
-										<p>
-										Le décret de création du Parc national des Cévennes protège également les rapaces ; extrait de l’article 3 :
-										</p>
-										<div class="well">
-												<a href="static/data/reglementation/decret_90_756.pdf"  target="_blank"><h4 class="text-center">Article 3.− I.</h4></a>
-												<b> Il est interdit :</b>
-												<ol>
-														<li>
-															D’introduire, à l’intérieur du cœur du parc national, des animaux non domestiques ou des végétaux, quel que soit leur stade de développement ;
-														</li>
-														<li>
-															De porter atteinte, de quelque manière que ce soit, aux animaux non domestiques, aux végétaux non cultivés, quel que soit leur stade de développement, aux minéraux, aux fossiles, aux constructions ou objets appartenant ou susceptibles d’appartenir au patrimoine historique, architectural ou archéologique, du cœur du parc national ;
-														</li>
-														<li>
-															 De détenir ou transporter, de quelque manière que ce soit, des animaux non domestiques, des végétaux non cultivés, ou des parties de ceux-ci, quel que soit leur stade de développement, des minéraux, des fossiles, des éléments de constructions ou des objets appartenant ou susceptibles d’appartenir au patrimoine historique, architectural ou archéologique, en provenance du cœur du parc national ;
-														</li>
-														<li>
-															D’emporter en dehors du cœur du parc national, de mettre en vente, vendre ou acheter des animaux non domestiques, des végétaux non cultivés, ou des parties de ceux-ci, quel que soit leur stade de développement, des minéraux, des fossiles, des éléments de constructions ou des objets appartenant ou susceptibles d’appartenir au patrimoine historique, architectural ou archéologique, en provenance du cœur du parc national ;
-														</li>
-														<li>
-															D’utiliser tout moyen ou chose qui, notamment par son bruit, soit de nature à déranger les animaux ou à troubler le calme et la tranquillité des lieux ;
-														</li>
-														<li>
-															De faire, par quelque procédé que ce soit, des inscriptions, signes ou dessins sur les pierres, les arbres ou tout bien meuble ou immeuble ;
-														</li>
-														<li>
-															De porter ou d’allumer du feu en dehors des immeubles à usage d’habitation ;
-														</li>
-														<li>
-															De déposer, abandonner ou jeter, en un lieu public ou privé, à l’exception des emplacements désignés à cet effet, des ordures, déchets, matériaux ou tout autre objet de quelque nature que ce soit, même si ce dépôt, cet abandon ou ce jet a été réalisé par la personne ayant la jouissance du lieu ou avec son autorisation ;
-														</li>
-														<li>
-															D’utiliser tout éclairage artificiel, quel qu’en soit son support, sa localisation et sa durée, à l’exclusion de l’éclairage des bâtiments à usage d’habitation et de l’éclairage public urbain sous réserve que ces éclairages ne soient pas de nature à déranger les animaux et ne portent pas atteinte au caractère du parc.
-														</li>
-													</ol>
-										</div>
-									</div>
+									<uib-accordion>
+    								<uib-accordion-group  is-open="status.eopen"  ng-init="status.eopen=true">
+								      <uib-accordion-heading>
+								        Au niveau Européen
+												<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.eopen, 'glyphicon-chevron-right': !status.eopen}"></i>
+								      </uib-accordion-heading>
+											<p>
+												Tous les rapaces sont strictement protégés par la
+												<a href="static/data/reglementation/Directive_oiseaux_-79-409-CEE_avril79.pdf" target="_blank">Directive "Oiseaux" n°79/409/CEE</a>,
+												concernant la conservation des oiseaux sauvages (Conseil de l'Europe du 2 avril 1979 - JOCE du 25 avril 1979) modifiée par la Directive 2009/147/CE du 30 novembre 2009 concernant la conservation des oiseaux sauvages. @TODO (mettre le lien)
+												Cette directive constitue un des cadres dans lequel s'appliquent les dispositions de la
+												<a href="static/data/reglementation/convention_berne.pdf"  target="_blank">convention de Berne</a>.
+											</p>
+    								</uib-accordion-group>
+	    								<uib-accordion-group  is-open="status.nopen"  ng-init="status.nopen=false">
+									      <uib-accordion-heading>
+									        Au niveau national
+													<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.nopen, 'glyphicon-chevron-right': !status.nopen}"></i>
+									      </uib-accordion-heading>
+											<p>
+												Face au déclin des populations de rapaces, la protection des rapaces a été instaurée dès 1972. L'arrêté du 24 janvier 1972, a modifié la liste des espèces dont la chasse est prohibée et a précisé l'interdiction de chasser tous les rapaces diurnes et nocturnes.
+											</p>
+											<p>
+												Un arrêté ministériel du 17 avril 1981 a fixé la liste des oiseaux protégés sur l’ensemble du territoire national. Il a été pris en application de la loi de protection de la nature du 10 juillet 1976. Ces dispositions ont confirmé cette protection stricte de tous les rapaces sans distinction sur le territoire national. Cette loi est désormais codifiée aux articles L411-1 et suivants du Code de l'Environnement.
+											</p>
+											<p>
+												Depuis, cette protection a été complétée et renforcée en interdisant également la destruction, l’altération ou la dégradation de leurs habitats.
+											</p>
+											<div class="well">
+												<h4 class="text-center">Article L411-1 du Code de l’environnement<h4>
+												<h5 class="text-center">Modifié par la <a href="https://www.legifrance.gouv.fr/affichTexteArticle.do;jsessionid=0A7B4163BE68AAC262E615350E28F2AB.tpdila08v_1?cidTexte=JORFTEXT000022470434&idArticle=LEGIARTI000022473046&dateTexte=20160615&categorieLien=id#LEGIARTI000022473046" target="_blank">LOI n° 2010-788 du 12 juillet 2010 - art. 124</a></h5>
+												<ol class="upper-roman">
+													<li>
+														Lorsqu'un intérêt scientifique particulier ou que les nécessités de la préservation du patrimoine naturel justifient la conservation de sites d'intérêt géologique, d'habitats naturels, d'espèces animales non domestiques ou végétales non cultivées et de leurs habitats, sont interdits :
+														<ol>
+															<li>
+																La destruction ou l'enlèvement des oeufs ou des nids, la mutilation, la destruction, la capture ou l'enlèvement, la perturbation intentionnelle, la naturalisation d'animaux de ces espèces ou, qu'ils soient vivants ou morts, leur transport, leur colportage, leur utilisation, leur détention, leur mise en vente, leur vente ou leur achat ;
+															</li>
+															<li>
+																La destruction, la coupe, la mutilation, l'arrachage, la cueillette ou l'enlèvement de végétaux de ces espèces, de leurs fructifications ou de toute autre forme prise par ces espèces au cours de leur cycle biologique, leur transport, leur colportage, leur utilisation, leur mise en vente, leur vente ou leur achat, la détention de spécimens prélevés dans le milieu naturel ;
+															</li>
+															<li>
+																La destruction, l'altération ou la dégradation de ces habitats naturels ou de ces habitats d'espèces ;
+															</li>
+															<li>
+																La destruction, l'altération ou la dégradation des sites d'intérêt géologique, notamment les cavités souterraines naturelles ou artificielles, ainsi que le prélèvement, la destruction ou la dégradation de fossiles, minéraux et concrétions présents sur ces sites.
+															</li>
+														</ol>
+													</li>
+													<li>
+														Les interdictions de détention édictées en application du 1°, du 2° ou du 4° du I ne portent pas sur les spécimens détenus régulièrement lors de l'entrée en vigueur de l'interdiction relative à l'espèce à laquelle ils appartiennent.
+													</li>
+												</ol>
+											</div>
+		                </uib-accordion-group>
+										<uib-accordion-group is-open="status.lopen">
+									      <uib-accordion-heading >
+									        Au niveau local
+													<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.lopen, 'glyphicon-chevron-right': !status.lopen}"></i>
+									      </uib-accordion-heading>
+											<p>
+												@TODO (mise en forme mettant plus en valeur) Du point de vue historique, il est intéressant de relever le rôle précurseur du département de la Lozère en matière de protection des rapaces. L’aigle royal a été exclu de la liste des oiseaux « nuisibles » par un arrêté préfectoral dès 1951 !
+											</p>
+											<p>
+											Le décret de création du Parc national des Cévennes protège également les rapaces 
+											(<a href="static/data/reglementation/decret_90_756.pdf"  target="_blank">article 3.− I.</a>)
+											</p>
+										</uib-accordion-group>
+  							</uib-accordion>
 							</div>
 	        </div>
 	    </div>
@@ -216,7 +196,9 @@
 	            <div class="modal-body">
 	                <div>
 											<p>
-												Le nombre et la diversité des rapaces présents sur le territoire font partie des richesses locales particulièrement remarquables en termes de biodiversité et nous donne une responsabilité importante pour leur préservation.
+												Le nombre et la diversité des rapaces présents sur le territoire font partie des richesses
+												 locales particulièrement remarquables en termes de biodiversité
+												 et nous donne une responsabilité importante pour leur préservation.
 											</p>
 											<p>
 												Leur protection contribue à l’orientation 2.2 de la charte de territoire
@@ -225,15 +207,18 @@
 											<p>
 												La mesure 2.2.1,
 												<span class="text-success">« Sauvegarder les «réservoirs de nature »</span>
-												, reprend à ce titre l’un des 10 engagements pris par les communes adhérentes qui est de mettre en place une règlementation tenant compte des périmètres de quiétude.
+												, reprend à ce titre l’un des 10 engagements pris par les communes adhérentes qui est de mettre en place
+												 une règlementation tenant compte des périmètres de quiétude.
 											</p>
 											<p>
 												La mesure 2.2.3, qui a pour objectif de
-												<span class="text-success">« soutenir les actions favorables aux espèces remarquables et à la biodiversité ordinaire »</span>
+												<span class="text-success">« soutenir les actions favorables aux espèces remarquables
+													et à la biodiversité ordinaire »</span>
 												 prévoit que les communes adhérentes font de leur protection une priorité.
 											</p>
 											<p>
-												Enfin, de nombreuses communes adhérentes ont confirmé leur engagement pour la protection des rapaces dans leur convention d’application de la charte.
+												Enfin, de nombreuses communes adhérentes ont confirmé leur engagement pour la protection des rapaces
+												 dans leur convention d’application de la charte.
 											</p>
 	                </div>
 	            </div>
@@ -250,77 +235,97 @@
 	                <h3 class="modal-title">Questions/Réponses</h3>
 	            </div>
 	            <div class="modal-body">
-								<div class="panel-group">
-								  <div class="panel panel-default">
-								    <div class="panel-heading" >
-											<h4 class="panel-title">
-												<a role="button"  ng-click="q1IsCollapsed = !q1IsCollapsed; q3IsCollapsed=true; q2IsCollapsed=true" ng-init="q1IsCollapsed=false">
-										      Quelles sont les espèces concernées ?
-								        </a>
-											</h4>
-								    </div>
-								    <div class="panel-body" uib-collapse="q1IsCollapsed">
-								      <p>
-												Les périmètres de quiétude sont aujourd’hui appliqués pour 8 rapaces emblématiques du Parc national des Cévennes : l’Aigle royal, la Chouette de Tengmalm, le Circaète Jean-le-blanc, le Faucon pèlerin, le Grand-duc d’Europe, le Vautour fauve, le Vautour moine et le Vautour percnoptère.
-											</p>
-											<p>
-												L’information concernant les périmètres de quiétude des Chouettes de Tengmalm sera complétée dès que possible.
-											</p>
-								    </div>
-								  </div>
-									<div class="panel panel-default">
-								    <div class="panel-heading" >
-											<h4 class="panel-title">
-												<a role="button"  ng-click="q2IsCollapsed = !q2IsCollapsed;  q1IsCollapsed=true; q3IsCollapsed=true" ng-init="q2IsCollapsed=true">
-										      Qu’est ce qu’un périmètre de quiétude ?
-								        </a>
-											</h4>
-								    </div>
-								    <div class="panel-body" uib-collapse="q2IsCollapsed">
+							<uib-accordion>
+								<uib-accordion-group  is-open="status.eopen"  ng-init="status.eopen=true">
+									<uib-accordion-heading>
+									 Quelles sont les espèces concernées ?
+										<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.eopen, 'glyphicon-chevron-right': !status.eopen}"></i>
+									</uib-accordion-heading>
+							      <p>
+											Les périmètres de quiétude sont aujourd’hui appliqués pour 8 rapaces emblématiques
+											du Parc national des Cévennes : l’Aigle royal, la Chouette de Tengmalm, le Circaète Jean-le-blanc,
+											 le Faucon pèlerin, le Grand-duc d’Europe, le Vautour fauve, le Vautour moine et le Vautour percnoptère.
+										</p>
+										<p>
+											L’information concernant les périmètres de quiétude des Chouettes de Tengmalm sera complétée dès que possible.
+
+											Les sites de reproduction de la Chouette chevêche et des Busards cendré et Saint Martin nécessitent également
+											des dispositions particulières qui ne figurent pour l'instant pas dans ce dispositif de périmètres de quiétude;
+											les informations sont fournies au fur et à mesure des demandes d'autorisation.
+
+											Enfin le Gypaète barbu en cours de réintroduction sera également intégré à ce dispositif de périmètres de quiétude.
+											Le site actuellement sensible correspond à la zone de lâcher des oiseaux.
+										</p>
+								  </uib-accordion-group>
+									<uib-accordion-group  is-open="status.lopen">
+										<uib-accordion-heading>Qu’est ce qu’un périmètre de quiétude ?
+											<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.lopen, 'glyphicon-chevron-right': !status.lopen}"></i>
+										</uib-accordion-heading>
 								      <p>
 												La période de reproduction est particulièrement sensible chez les rapaces. Sa réussite repose notamment sur le maintien de la quiétude autour des nids. Si les adultes sont dérangés pendant l’édification de l’aire, la couvaison ou l’élevage des jeunes, ils peuvent abandonner la nichée temporairement (dans ce cas les œufs ou poussins sont à la merci de prédateurs) voire définitivement.
 											</p>
 											<p>
-												Fort de sa connaissance des espèces et du territoire, dès les années 90, le Parc national des Cévennes a élaboré un <b>outil de protection</b> des sites de nidification: le périmètre de quiétude.
+												Fort de sa connaissance des espèces et du territoire, dès les années 90, le Parc national des Cévennes
+												a été précurseur au niveau national en élaborant un <b>outil de protection</b> des sites de nidification: le périmètre de quiétude.
 											</p>
 											<p>
 												Un périmètre de quiétude est une <b>zone autour du nid au sein de laquelle il est nécessaire d’assurer la tranquillité des oiseaux pendant la période de reproduction et de nidification, jusqu’à l’envol des jeunes.</b> Les périmètres de quiétude sont définis au fur et à mesure des découvertes de sites de nidification  en tenant compte de l’espèce présente et de la configuration du terrain.
 											</p>
 											<p>
-												Durant la période sensible, sur ces sites, <b>en cas de projet d’activités travaux ou autre, l’expertise des agents du Parc et le dialogue avec les porteurs de projet a pour objectif de voir si celui-ci est possible sans compromettre la reproduction et ce dans quelles conditions.</b> L’objectif est toujours de concilier au mieux les enjeux de préservation du patrimoine naturel et les autres besoins du territoire.
+												Durant la période sensible, sur ces sites, <b>en cas de projet d’activités travaux ou autre,
+													l’expertise des agents du Parc
+													et le dialogue avec les porteurs de projet a pour objectif de voir si celui-ci
+													est possible sans compromettre la reproduction et ce dans quelles conditions.</b>
+												En dehors de la période sensible, même si le périmètre est inactif, il est important de préserver les caractéristiques générales
+												du site.
+												 L’objectif est toujours de concilier au mieux les enjeux de préservation du patrimoine naturel
+												  et les autres besoins du territoire.
 											</p>
 											<p>
 												Pour chaque périmètre vous trouverez dans cette application les noms et numéros de téléphone des personnes à contacter.
 											</p>
-								    </div>
-								  </div>
-									<div class="panel panel-default">
-								    <div class="panel-heading" >
-											<h4 class="panel-title">
-												<a role="button"  ng-click="q3IsCollapsed = !q3IsCollapsed;  q1IsCollapsed=true; q2IsCollapsed=true" ng-init="q3IsCollapsed=true">
-										      Qu’est ce qu’un périmètre actif/inactif ?
-								        </a>
-											</h4>
-								    </div>
-								    <div class="panel-body" uib-collapse="q3IsCollapsed">
+										</uib-accordion-group>
+										<uib-accordion-group  is-open="status.xopen">
+											<uib-accordion-heading>Qu’est ce qu’un périmètre actif/inactif ?
+												<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.xopen, 'glyphicon-chevron-right': !status.xopen}"></i>
+											</uib-accordion-heading>
 								      <p>
-												Les facteurs de choix d’un site de reproduction par un couple de rapaces sont en premier ressort liés à la configuration générale du site (topographie, orientation, hauteur de la paroi rocheuse…) et secondairement à la nature et la structure du couvert végétal. Sauf bouleversement majeur et exceptionnel (aménagement lourd, ouverture de piste..), un site reste par conséquent favorable dans la durée.
+												Les facteurs de choix d’un site de reproduction par un couple de rapaces sont en premier ressort liés à la configuration
+												générale du site (topographie, orientation, hauteur de la paroi rocheuse…) et secondairement à la nature
+												et la structure du couvert végétal. Sauf bouleversement majeur et exceptionnel (aménagement lourd, ouverture de piste..),
+												un site reste par conséquent favorable dans la durée.
 											</p>
 											<p>
-												Les sites sont donc souvent réutilisés par des oiseaux d’années en années sur de longues périodes ; ils arrivent qu’ils soient utilisés par des espèces différentes dans le temps (Un Grand-duc d’Europe remplaçant un Vautour fauve par exemple). Certains sites inoccupés pendant plusieurs années peuvent ensuite être réinvestis, des sites connus dans la mémoire orale ont ainsi été à nouveau occupés à la faveur de la remontée des effectifs des populations dans le cas de l’Aigle royal par exemple.
+												Les sites sont donc souvent réutilisés par des oiseaux d’années en années sur de longues périodes ;
+												ils arrivent qu’ils soient utilisés par des espèces différentes dans le temps
+												(Un Grand-duc d’Europe remplaçant un Vautour fauve par exemple).
+												Certains sites inoccupés pendant plusieurs années peuvent ensuite être réinvestis.
+												Des sites connus dans la mémoire orale ont ainsi été à nouveau occupés
+												à la faveur de la remontée des effectifs des populations dans le cas de l’Aigle royal par exemple.
 											</p>
 											<p>
-												Le dispositif de périmètre de quiétude mis en place tient compte de ces réalités afin d’ajuster au mieux les préconisations. L’ensemble des périmètres de quiétude connus sont conservés et figurent dans cette base de données. Chacun des sites est qualifié d’ « actif » ou « inactif » selon qu’il est occupé ou non une année considérée.
+												Le dispositif de périmètre de quiétude mis en place tient compte de ces réalités afin d’ajuster au mieux
+												les préconisations.
+												L’ensemble des périmètres de quiétude connus sont conservés et figurent
+												 dans cette base de données.
+												 Chacun des sites est qualifié d’ « actif » ou « inactif » selon qu’il est occupé ou non une année considérée.
 											</p>
 											<p>
-												Si un site est occupé il est qualifié « d’actif », les activités projetées dans le périmètre de quiétude doivent être examinées dans le détail afin de prendre les mesures nécessaires pour éviter le dérangement et l’échec de la reproduction ou l’abandon du site. L’objectif est bien sûr de concilier au mieux protection des oiseaux et déroulement de l’activité. Sans élément sur un éventuel déplacement des oiseaux, un périmètre reste actif trois ans à partir de la dernière observation, si des activités sont projetées une vérification est faite pour confirmer la présence des oiseaux.
+												Si un site est occupé il est qualifié « d’actif », les activités projetées dans le périmètre de quiétude doivent
+												être examinées dans le détail afin de prendre les mesures nécessaires pour éviter le dérangement
+												et l’échec de la reproduction ou l’abandon du site.
+												L’objectif est bien sûr de concilier au mieux protection des oiseaux et déroulement de l’activité.
+												Sans élément sur un éventuel déplacement des oiseaux, un périmètre reste actif trois ans à partir de la dernière observation,
+												 si des activités sont projetées une vérification est faite pour confirmer la présence des oiseaux.
 											</p>
 											<p>
-												Si un site n’est pas occupé il est qualifié d’ « inactif », mais comme expliqué précédemment, il est nécessaire de préserver ses caractéristiques générales.
+												Si un site n’est pas occupé il est qualifié d’ « inactif », mais comme expliqué précédemment,
+												il est nécessaire de préserver ses caractéristiques générales.
+												Les périmètres de quiétude pour lesquels il est indiqué "à vérifier", n'ont pu être suivis pour l'année considérée;
+												si un projet concerne l'un de ces périmètres, une vérification terrain de la présence des oiseaux pourra être faite.
 											</p>
-								    </div>
-								  </div>
-								</div>
+								    </uib-accordion-heading>
+								</uib-accordion>
 	            </div>
 	        </div>
 	    </div>

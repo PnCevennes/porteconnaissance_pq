@@ -115,10 +115,11 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
   $scope.mainLayer = null;
   $scope.mainLayerData = null;
 
+
   $scope.currentUser = loginSrv.getCurrentUser();
   $('#info-popup').hide();
 
-  $scope.map = L.map('mapc', { zoomControl:true });
+  $scope.map = L.map('mapc', { zoomControl:false ,attributionControl:false});
 
   //Chargement des données statiques
   $scope.contact_massifs= {};
@@ -127,12 +128,12 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
       $scope.contact_massifs = results.data;
   });
   //Chargement des données statiques
-  $scope.contact_secteurs= {};
-  $http.get("pq/contact/secteurs").then(
+  $scope.contact_dt= {};
+  $http.get("pq/contact/dt").then(
     function(results) {
-      $scope.contact_secteurs = results.data;
+      $scope.contact_dt = results.data;
   });
-  $scope.annee_etatdonnees = ((new Date().getMonth()<5) && (new Date().getDay()< 15)) ? new Date().getFullYear() : new Date().getFullYear()-1;
+  $scope.annee_etatdonnees = (new Date() > new Date((new Date().getFullYear())+'-05-15')) ? new Date().getFullYear() : new Date().getFullYear()-1;
 
   //Démarrage du spinner
   usSpinnerService.spin('spinner-1');
@@ -156,6 +157,18 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
       // Ajout
       var info = L.control({position:'topleft'});
 
+      info.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend');
+        div.innerHTML ='<strong>'+$scope.currentUser.commune+' et environs</strong>';
+        return div;
+      };
+
+      info.addTo($scope.map);
+
+      $scope.date_maj_donnees = $scope.mapOptions.layers.overlay.date_maj_donnees;
+      var att = L.control.attribution().addAttribution("&copy;PnC mise à jour "+$scope.date_maj_donnees);
+      att.addTo($scope.map);
+
       if (!$scope.mapOptions.layers.overlay.tooltip) $scope.mapOptions.layers.overlay.tooltip = {};
       if ($scope.mapOptions.layers.overlay.tooltip.display){
         info.onAdd = function (map) {
@@ -164,7 +177,6 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
             return this._div;
         };
         info.update = function (props) {
-
             this._div.innerHTML = (props ?
               eval($scope.mapOptions.layers.overlay.tooltip.content)
               : '');
