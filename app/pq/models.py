@@ -20,6 +20,7 @@ class PqData(db.Model):
     zone_pnc = db.Column(db.Unicode)
     massifs = db.Column(db.Unicode)
     id_secteur = db.Column(db.Unicode)
+    qtd_nom = db.Column(db.Unicode)
     geom =  db.Column('geom', Geometry('MULTIPOLYGON', srid=4326))
 
     def as_dict(self):
@@ -35,6 +36,28 @@ class PqData(db.Model):
         return feature
 
 class Communes(db.Model):
+    __tablename__ = 'communes'
+    __table_args__ = {'schema':'lim_admin'}
+    code_insee= db.Column(db.Integer, primary_key=True)
+    geom =  db.Column('geom_4326', Geometry('MULTIPOLYGON', srid=4326))
+    nom_com =  db.Column(db.Unicode)
+
+    def as_dict(self):
+        return {
+            c.name: getattr(self, c.name)
+            for c in self.__table__.columns
+        }
+
+    def as_geofeature(self):
+        geometry = to_shape(self.geom)
+        feature = Feature(
+                id=self.r,
+                geometry=geometry,
+                properties= {c.name: getattr(self, c.name) for c in self.__table__.columns if c.name!='geom'}
+            )
+        return feature
+
+class CommunesEmprises(db.Model):
     __tablename__ = 'v_communes_emprise'
     __table_args__ = {'schema':'lim_admin'}
     code_insee= db.Column(db.Integer, primary_key=True)
@@ -45,8 +68,6 @@ class Communes(db.Model):
     st_ymin= db.Column(db.Unicode)
 
     def as_dict(self):
-        for c in self.__table__.columns :
-            print(c)
         return {
             c.name: getattr(self, c.name)
             for c in self.__table__.columns
@@ -58,6 +79,18 @@ class ContactMassifs(db.Model):
     id= db.Column(db.Integer, primary_key=True)
     nom_massif = db.Column(db.Unicode)
     nom_agent = db.Column(db.Unicode)
+    tel_portable = db.Column(db.Unicode)
+    tel_fixe = db.Column(db.Unicode)
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+class ContactDt(db.Model):
+    __tablename__ = 'contact_dt'
+    __table_args__ = {'schema':'pq'}
+    id= db.Column(db.Integer, primary_key=True)
+    nom_massif = db.Column(db.Unicode)
+    nom_dt = db.Column(db.Unicode)
     tel_portable = db.Column(db.Unicode)
     tel_fixe = db.Column(db.Unicode)
 
