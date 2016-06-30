@@ -22,6 +22,7 @@ class AppUser(db.Model):
     email = db.Column(db.Unicode)
     code_insee = db.Column(db.Integer)
     commune = db.Column(db.Unicode)
+    actif = db.Column(db.Boolean)
 
     @property
     def password(self):

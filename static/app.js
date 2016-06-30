@@ -61,8 +61,8 @@ app.service('loginSrv', ['$cookies','$location', function ($cookies, $location) 
     };
 }]);
 
-app.controller('LoginCtl', [ '$scope', '$http', 'loginSrv','backendCfg','$location',
-  function ($scope, $http, loginSrv,backendCfg,$location) {
+app.controller('LoginCtl', [ '$scope', '$http', 'loginSrv','backendCfg','$location','$uibModal',
+  function ($scope, $http, loginSrv,backendCfg,$location,$uibModal) {
     var self = this;
 
     $scope.sumbit = function () {
@@ -75,7 +75,8 @@ app.controller('LoginCtl', [ '$scope', '$http', 'loginSrv','backendCfg','$locati
         })
         .error(function(data, status) {
           if (status === 490) {
-            form[data.type].$invalid = true;
+            if(data.type=='inactif') $('#modalCompteInactif').modal({show:true});
+            else form[data.type].$invalid = true;
           }
           else {
             form.$invalid = true;

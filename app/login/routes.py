@@ -61,6 +61,11 @@ def login():
             resp = Response(json.dumps({'type':'password', 'msg':'Mot de passe invalide'}), status=490)
             return resp
 
+        if not user.actif:
+            print('Inactif')
+            resp = Response(json.dumps({'type':'inactif', 'msg':'Compte non actif'}), status=490)
+            return resp
+
         #Génération d'un token
         s = Serializer(get_app().config['SECRET_KEY'], expires_in = get_app().config['COOKIE_EXPIRATION'])
         token = s.dumps({'id_role':user.id_role})
