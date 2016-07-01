@@ -26,7 +26,7 @@ def get_pq():
         .one()
 
     data = db.session.query(models.PqData)\
-        .join(models.Communes, func.ST_Intersects(models.PqData.geom, models.Communes.geom))\
+        .join(models.Communes, func.ST_Intersects(models.PqData.geom, models.Communes.geom_buffer))\
         .filter(models.Communes.code_insee == user.code_insee)\
         .all()
 
@@ -41,6 +41,12 @@ def get_communes():
     data = models.CommunesEmprises.query.all()
     return jsonify([liste.as_dict() for liste in data])
 
+
+@routes.route('/maskcommunes/<code_insee>', methods=['GET'])
+@fnauth.check_auth()
+def get_maskcommunes(code_insee):
+    data = models.Communes.query.filter(models.Communes.code_insee == code_insee).one()
+    return jsonify(data.as_geofeature())
 
 @routes.route('/contact/massifs', methods=['GET'])
 @fnauth.check_auth()

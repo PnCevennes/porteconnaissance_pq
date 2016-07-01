@@ -232,6 +232,22 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
           }
         );
       }
+
+      //Affichage d'un masque sur l'emprise de la commune
+
+      $http.get('pq/maskcommunes/'+$scope.currentUser.code_insee).then(
+        function(results) {
+          // transform geojson coordinates into an array of L.LatLng
+          var coordinates = results.data.geometry.coordinates[0][0];
+          var latLngs = [];
+          for (var i=0; i<coordinates.length; i++) {
+              latLngs.push(new L.LatLng(coordinates[i][1], coordinates[i][0]));
+          }
+
+          L.mask(latLngs).addTo($scope.map);
+        }
+      );
+
     }
   );
 

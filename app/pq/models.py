@@ -40,6 +40,7 @@ class Communes(db.Model):
     __table_args__ = {'schema':'lim_admin'}
     code_insee= db.Column(db.Integer, primary_key=True)
     geom =  db.Column('geom_4326', Geometry('MULTIPOLYGON', srid=4326))
+    geom_buffer =  db.Column('geom_buffer', Geometry('MULTIPOLYGON', srid=4326))
     nom_com =  db.Column(db.Unicode)
 
     def as_dict(self):
@@ -51,9 +52,8 @@ class Communes(db.Model):
     def as_geofeature(self):
         geometry = to_shape(self.geom)
         feature = Feature(
-                id=self.r,
-                geometry=geometry,
-                properties= {c.name: getattr(self, c.name) for c in self.__table__.columns if c.name!='geom'}
+                id=self.code_insee,
+                geometry=geometry
             )
         return feature
 
