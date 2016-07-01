@@ -45,11 +45,12 @@
           <a class="dropdown-toggle filter-collapse collapsed filter-panel"
 						ng-init="isCollapsed = false"
 						id="filter-panel"
-						ng-click="isCollapsed = !isCollapsed" >Filtres <span class="caret"></span></a>
-						<ul class="dropdown-menu filters" uib-collapse="isCollapsed">
-							<dir-filter-element ng-repeat="(key, obj) in ::mapOptions.layers.overlay.filters"
-							on-check="dofilterOnMap()" filter="obj" key="key"/>
-						</ul>
+						ng-click="isCollapsed = !isCollapsed" >Filtres <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu filters" uib-collapse="isCollapsed">
+						<dir-filter-element ng-repeat="(key, obj) in ::mapOptions.layers.overlay.filters"
+						on-check="dofilterOnMap()" filter="obj" key="key"/>
+					</ul>
         </li>
     </ul>
 			</div>
@@ -121,7 +122,8 @@
 											<p>
 												Tous les rapaces sont strictement protégés par la
 												<a href="static/data/reglementation/Directive_oiseaux_-79-409-CEE_avril79.pdf" target="_blank">Directive "Oiseaux" n°79/409/CEE</a>,
-												concernant la conservation des oiseaux sauvages (Conseil de l'Europe du 2 avril 1979 - JOCE du 25 avril 1979) modifiée par la Directive 2009/147/CE du 30 novembre 2009 concernant la conservation des oiseaux sauvages. @TODO (mettre le lien)
+												concernant la conservation des oiseaux sauvages (Conseil de l'Europe du 2 avril 1979 - JOCE du 25 avril 1979)
+												modifiée par la <a href="static/data/reglementation/Directive_oiseaux_version_2009.pdf" target="_blank">Directive 2009/147/CE</a> du 30 novembre 2009 concernant la conservation des oiseaux sauvages.
 												Cette directive constitue un des cadres dans lequel s'appliquent les dispositions de la
 												<a href="static/data/reglementation/convention_berne.pdf"  target="_blank">convention de Berne</a>.
 											</p>
@@ -135,7 +137,10 @@
 												Face au déclin des populations de rapaces, la protection des rapaces a été instaurée dès 1972. L'arrêté du 24 janvier 1972, a modifié la liste des espèces dont la chasse est prohibée et a précisé l'interdiction de chasser tous les rapaces diurnes et nocturnes.
 											</p>
 											<p>
-												Un arrêté ministériel du 17 avril 1981 a fixé la liste des oiseaux protégés sur l’ensemble du territoire national. Il a été pris en application de la loi de protection de la nature du 10 juillet 1976. Ces dispositions ont confirmé cette protection stricte de tous les rapaces sans distinction sur le territoire national. Cette loi est désormais codifiée aux articles L411-1 et suivants du Code de l'Environnement.
+												Un arrêté ministériel du 17 avril 1981 a fixé la liste des oiseaux protégés sur l’ensemble du territoire national.
+												Il a été pris en application de la loi de protection de la nature du 10 juillet 1976.
+												Ces dispositions ont confirmé cette protection stricte de tous les rapaces sans distinction sur le territoire national.
+												Cette loi est désormais codifiée aux articles <a href="https://www.legifrance.gouv.fr/affichCode.do;jsessionid=8F559FE4C1F723672584290F4AEFF227.tpdila08v_1?idSectionTA=LEGISCTA000022495753&cidTexte=LEGITEXT000006074220&dateTexte=20160701" target="_blank">L411-1 et suivants</a> du Code de l'Environnement.
 											</p>
 											<p>
 												Depuis, cette protection a été complétée et renforcée en interdisant également la destruction, l’altération ou la dégradation de leurs habitats.
@@ -172,12 +177,14 @@
 									        Au niveau local
 													<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.lopen, 'glyphicon-chevron-right': !status.lopen}"></i>
 									      </uib-accordion-heading>
-											<p>
-												@TODO (mise en forme mettant plus en valeur) Du point de vue historique, il est intéressant de relever le rôle précurseur du département de la Lozère en matière de protection des rapaces. L’aigle royal a été exclu de la liste des oiseaux « nuisibles » par un arrêté préfectoral dès 1951 !
+
+												<div class="bs-callout bs-callout-info">
+													Du point de vue historique, il est intéressant de relever le rôle précurseur du département de la Lozère en matière de protection des rapaces. L’aigle royal a été exclu de la liste des oiseaux « nuisibles » par un arrêté préfectoral dès 1951 !
+												</div>
 											</p>
 											<p>
-											Le décret de création du Parc national des Cévennes protège également les rapaces 
-											(<a href="static/data/reglementation/decret_90_756.pdf"  target="_blank">article 3.− I.</a>)
+											Le <a href="static/data/reglementation/decret_revise_pnc.pdf"  target="_blank">décret</a> de création du Parc national des Cévennes protège également les rapaces 
+											(article 3.− I.)
 											</p>
 										</uib-accordion-group>
   							</uib-accordion>
@@ -247,11 +254,11 @@
 										</p>
 										<p>
 											L’information concernant les périmètres de quiétude des Chouettes de Tengmalm sera complétée dès que possible.
-
+											<br/>
 											Les sites de reproduction de la Chouette chevêche et des Busards cendré et Saint Martin nécessitent également
 											des dispositions particulières qui ne figurent pour l'instant pas dans ce dispositif de périmètres de quiétude;
 											les informations sont fournies au fur et à mesure des demandes d'autorisation.
-
+											<br/>
 											Enfin le Gypaète barbu en cours de réintroduction sera également intégré à ce dispositif de périmètres de quiétude.
 											Le site actuellement sensible correspond à la zone de lâcher des oiseaux.
 										</p>
@@ -320,6 +327,8 @@
 											<p>
 												Si un site n’est pas occupé il est qualifié d’ « inactif », mais comme expliqué précédemment,
 												il est nécessaire de préserver ses caractéristiques générales.
+											</p>
+											<p>
 												Les périmètres de quiétude pour lesquels il est indiqué "à vérifier", n'ont pu être suivis pour l'année considérée;
 												si un projet concerne l'un de ces périmètres, une vérification terrain de la présence des oiseaux pourra être faite.
 											</p>
@@ -349,7 +358,7 @@
 														<i class="glyphicon glyphicon-download-alt" ></i>
 													</a>
 												</li>
-													<li> Télécharger le cahier techique en haute définition
+													<li> Télécharger le cahier techique en haute définition (attention 70Mo)
 														<a type="button" class="btn btn-xs btn-danger"
 															href="static/data/cahier_technique/Plaquette_rapaces_MD.pdf"
 															target="_blank"
@@ -361,9 +370,8 @@
 											</ul>
 									</div>
 									<div class="">
-											<h4>Fiche espèce</h4>
+										<h4>Fiche espèce</h4>
 										<ul>
-
 			              	<li ng-repeat="i in ::mapOptions.layers.overlay.vocabulaire.pdf.values" class="">
 			              			{{::i.label}}
 													<a ng-if="i.fichier" type="button" class="btn btn-xs btn-danger" href="static/data/cahier_technique/especes/{{::i.fichier}}"
