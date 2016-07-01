@@ -10,15 +10,16 @@ L.Mask = L.Polygon.extend({
   },
 
   initialize: function (latLngs, options) {
-      var outerBoundsLatLngs = [
+    var outerBoundsLatLngs = [
       this.options.outerBounds.getSouthWest(),
       this.options.outerBounds.getNorthWest(),
       this.options.outerBounds.getNorthEast(),
       this.options.outerBounds.getSouthEast()
     ];
-        L.Polygon.prototype.initialize.call(this, [outerBoundsLatLngs, latLngs], options);
+    L.Polygon.prototype.initialize.call(this, [outerBoundsLatLngs, latLngs], options);
   },
 });
+
 L.mask = function (latLngs, options) {
   return new L.Mask(latLngs, options);
 };

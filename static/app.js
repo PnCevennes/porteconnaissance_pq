@@ -160,7 +160,7 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
 
       info.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'info legend');
-        div.innerHTML ='<strong>'+$scope.currentUser.commune+' et environs</strong>';
+        div.innerHTML ='<strong>'+$scope.currentUser.commune+'</strong>';
         return div;
       };
 
