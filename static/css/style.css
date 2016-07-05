@@ -261,6 +261,6 @@ ol.upper-roman{
    list-style-type: upper-roman;
 }
 
-.login-page {
+.login-page, .newPass-page {
       margin-top: -50px;
 }
