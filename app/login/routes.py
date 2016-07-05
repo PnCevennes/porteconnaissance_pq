@@ -95,10 +95,17 @@ def generate_password():
         try :
             user = models.AppUser.query\
                 .filter(models.AppUser.email==user_data['email'])\
+                .limit(1)\
                 .one()
         except Exception as e:
             resp = Response(json.dumps({'type':'email', 'msg':'Email invalide'}), status=490)
             return resp
+
+        if not user.actif:
+            print('Inactif')
+            resp = Response(json.dumps({'type':'email', 'msg':'Compte non actif'}), status=490)
+            return resp
+
         p = user.generate_newpassword()
         db.session.add(user)
         db.session.commit()
