@@ -13,7 +13,7 @@ def init_app():
     else :
         app = Flask(__name__)
 
-    app.config.from_pyfile('config.py')
+    app.config.from_pyfile('config/config.py')
     db.init_app(app)
 
     mail.init_app(app)
@@ -29,5 +29,6 @@ def init_app():
     app_globals['app'] = app
     return app
 
+app = init_app()
 if __name__ == '__main__':
-    init_app().run(debug=init_app().config['MODE_DEBUG'])
+    app.run(debug=app.config['MODE_DEBUG'])
