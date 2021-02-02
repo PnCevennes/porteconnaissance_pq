@@ -1,0 +1,11 @@
+
+
+#########################
+### Gunicorn settings ###
+#########################
+
+app_name=pacpq
+gun_num_workers=4
+gun_host=0.0.0.0
+gun_port=8283
+venv_dir=venv
