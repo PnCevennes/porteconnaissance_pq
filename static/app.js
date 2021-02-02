@@ -213,15 +213,31 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
         });
       };
       //Chargement des données et affichage sur la carte
-      $http.get(results.data.layers.overlay.url).then(
-        function(results) {
-          $scope.mainLayerData = results.data;
-          $scope.mainLayer = new L.geoJson(results.data,$scope.mainLayerOptions);
-          $scope.map.addLayer($scope.mainLayer);
-          //Arret du spinner
-          usSpinnerService.stop('spinner-1');
-          $('#modalCharteDonnees').modal({show:true});
-        });
+      //Affichage d'un masque sur l'emprise de la commune
+
+      $http.get('pq/maskcommunes/'+$scope.currentUser.code_insee).then(
+        function(maskc) {
+          // transform geojson coordinates into an array of L.LatLng
+          var coordinates = maskc.data.geometry.coordinates[0][0];
+          var latLngs = [];
+          for (var i=0; i<coordinates.length; i++) {
+              latLngs.push(new L.LatLng(coordinates[i][1], coordinates[i][0]));
+          }
+
+          L.mask(latLngs).addTo($scope.map);
+          $http.get(results.data.layers.overlay.url).then(
+            function(results) {
+              $scope.mainLayerData = results.data;
+              $scope.mainLayer = new L.geoJson(results.data,$scope.mainLayerOptions);
+              $scope.map.addLayer($scope.mainLayer);
+              //Arret du spinner
+              usSpinnerService.stop('spinner-1');
+              $('#modalCharteDonnees').modal({show:true});
+            });
+        }
+      );
+
+
 
       //----Selecteur de localisation
       if (results.data.location) {
@@ -232,21 +248,6 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
           }
         );
       }
-
-      //Affichage d'un masque sur l'emprise de la commune
-
-      $http.get('pq/maskcommunes/'+$scope.currentUser.code_insee).then(
-        function(results) {
-          // transform geojson coordinates into an array of L.LatLng
-          var coordinates = results.data.geometry.coordinates[0][0];
-          var latLngs = [];
-          for (var i=0; i<coordinates.length; i++) {
-              latLngs.push(new L.LatLng(coordinates[i][1], coordinates[i][0]));
-          }
-
-          L.mask(latLngs).addTo($scope.map);
-        }
-      );
 
     }
   );
@@ -348,7 +349,7 @@ app.factory('LeafletServices', ['$http', function($http) {
       if (layerdata.type == 'xyz' || layerdata.type == 'ign') {
         var url = layerdata.url;
         if ( layerdata.type == 'ign') {
-          url = 'https://gpp3-wxs.ign.fr/' + layerdata.key + '/geoportail/wmts?LAYER='+layerdata.layer+'&EXCEPTIONS=text/xml&FORMAT=image/jpeg&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}';
+          url = 'https://wxs.ign.fr/' + layerdata.key + '/geoportail/wmts?LAYER='+layerdata.layer+'&EXCEPTIONS=text/xml&FORMAT=image/jpeg&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}';
         }
         this.layer.map = new L.TileLayer(url,layerdata.options);
       }
