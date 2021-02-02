@@ -24,17 +24,24 @@ Architecture
 Installation
 ------------
 ### Prérequis 
+
 Python3, Bower
+```
 npm install -g bower
+```
 
 ### Backend
+```
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt 
+```
 
 ### Frontend
+```
 cd static/
 bower install
+```
 
 ### Configuration
 
