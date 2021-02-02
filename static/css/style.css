@@ -89,6 +89,7 @@ ul.filter-list li {
 
 .leaflet-popup-content-wrapper{
   background : #333030 none repeat scroll 0% 0%;
+  color: white;
 }
 
 .dropdown-menu {
