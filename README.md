@@ -25,8 +25,10 @@ Installation
 ------------
 ### Prérequis 
 
-Python3, Bower
+Python3, Bower, Apache, Supervisor
+
 ```
+# Installation de bower
 npm install -g bower
 ```
 
@@ -44,11 +46,46 @@ bower install
 ```
 
 ### Configuration
+```
+cp config/settings.ini.sample config/settings.ini
+cp config/config.py.sample config/config.py
+cp static/data/maps.json.sample static/data/maps.json
+```
 
-cp config.py.sample config.py
-cp data/maps.json.sample data/maps.json
+### Mise en place du service
+
+sudo cp pacpq-service.conf /etc/supervisor/conf.d/
+sudo sed -i "s%APP_PATH%`pwd`%" /etc/supervisor/conf.d/pacpq-service.conf
+sudo supervisorctl reread
+sudo supervisorctl reload
+### Configuration apache
+
+```
+# activate proxy apache extension
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+```
 
 
+```
+#Configucation fichier apache
+<VirtualHost *:80>
+
+    # Configuration Geonature-atlas
+    RewriteEngine  on
+    <Location />
+        ProxyPass  http://127.0.0.1:8283/
+        ProxyPassReverse  http://127.0.0.1:8283/
+    </Location>
+
+    <Directory MY_PATH/porteconnaissance_pq>
+      Order allow,deny
+      Allow from all
+      Require all granted
+    </Directory>
+
+</VirtualHost>
+```
 API
 ------------
   - Documentation sur les routes : [api](docs/api.md)
