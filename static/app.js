@@ -69,11 +69,11 @@ app.controller('LoginCtl', [ '$scope', '$http', 'loginSrv','backendCfg','$locati
       var form = $scope.loginForm
       $http.post(backendCfg.api_url + 'auth/login',
           {"login":$scope.login, "password": $scope.password}
-        ).success(function(response) {
-          loginSrv.setCurrentUser(response.user, response.expires);
+        ).then(function(response) {
+          loginSrv.setCurrentUser(response.data.user, response.data.expires);
           $location.path('/');
-        })
-        .error(function(data, status) {
+        },
+        function(data, status) {
           if (status === 490) {
             if(data.type=='inactif') $('#modalCompteInactif').modal({show:true});
             else form[data.type].$invalid = true;
@@ -93,10 +93,10 @@ app.controller('NewPasswordCtl', [ '$scope', '$http', 'backendCfg','$location',
       var form = $scope.newPassForm
       $http.post(backendCfg.api_url + 'auth/generate_password',
           {"email":$scope.email}
-        ).success(function(response) {
+        ).then(function(response) {
           $location.path('/login');
-        })
-        .error(function(data, status) {
+        },
+        function(data, status) {
           if (status === 490) {
             form[data.type].$invalid = true;
           }
@@ -160,7 +160,7 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,$sce, usSpinnerSe
 
       info.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'info legend');
-        div.innerHTML ='<strong>'+$scope.currentUser.commune+'</strong>';
+        // div.innerHTML ='<strong>'+$scope.currentUser.commune+'</strong>';
         return div;
       };
 
